@@ -2,7 +2,7 @@
 
 Sistema de agendamento de aulas, fichas e assinaturas para um estúdio de treino funcional. Alunos compram fichas avulsas ou assinam um plano recorrente, agendam aulas escolhendo o aparelho no mapa da sala e recebem confirmação por e-mail. O painel administrativo controla alunos, aulas, pacotes e cupons.
 
-Este projeto é uma reescrita completa, do zero, de um sistema que mantenho em produção para um cliente real. A versão original foi construída em PHP procedural. Aqui apliquei MVC, separação de responsabilidades por camada e as regras de negócio corrigidas ao longo de meses de uso real — sem dados de clientes, credenciais ou qualquer informação sensível do sistema original.
+Este projeto é uma reescrita completa, do zero, de um sistema que mantenho em produção desde 2024 para um cliente real. A versão original foi construída em PHP procedural. Aqui apliquei MVC, separação de responsabilidades por camada e as regras de negócio corrigidas ao longo de meses de uso real — sem dados de clientes, credenciais ou qualquer informação sensível do sistema original.
 
 ## Stack
 
