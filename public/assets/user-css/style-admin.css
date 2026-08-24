@@ -1,0 +1,516 @@
+/* ESTILO ADMINISTRATIVO - HIITSTUDIO 
+    Organizado por: Variáveis > Reset > Layout > Sidebar > Responsividade
+*/
+
+        :root {
+            --primary: #ff6A00;
+            --secondary: #071a3d;
+            --sidebar-w: 240px;
+            --bg-dark: #05122b;
+            --white: #ffffff;
+        }
+        
+        /* --- RESET & BASE --- */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: var(--bg-dark);
+            font-family: 'Raleway', sans-serif;
+            color: var(--white);
+            min-height: 100vh;
+        }
+        
+        h1, h2, h3, .oswald { 
+            font-family: 'Oswald', sans-serif; 
+            text-transform: uppercase; 
+        }
+        
+        /* --- ESTRUTURA SIDEBAR (PC) --- */
+        .sidebar { 
+            width: var(--sidebar-w); 
+            background: var(--secondary); 
+            height: 100vh; 
+            position: fixed; 
+            left: 0; 
+            top: 0; 
+            z-index: 1100;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+            padding-top: 20px;
+        }
+        
+        .sidebar-logo { 
+            padding: 0 20px 30px; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            margin-bottom: 20px; 
+            text-align: center;
+        }
+        
+        .sidebar-menu a { 
+            display: block; 
+            color: rgba(255,255,255,0.7); 
+            padding: 15px 25px; 
+            text-decoration: none; 
+            transition: 0.3s; 
+            font-weight: bold; 
+        }
+        
+        .sidebar-menu a:hover, 
+        .sidebar-menu a.active { 
+            background: rgba(255,255,255,0.1); 
+            color: var(--primary); 
+            border-left: 4px solid var(--primary); 
+        }
+        
+        /* Elementos de controle mobile ocultos no PC */
+        .mobile-menu-toggle, .close-sidebar { display: none; }
+        
+        /* --- CONTEÚDO PRINCIPAL --- */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            min-height: 100vh;
+            transition: 0.4s;
+        }
+        
+        header { 
+            background: var(--secondary); 
+            padding: 22px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .container { padding: 30px 40px; }
+        
+        /* --- COMPONENTES (Tabelas, Cards, Badges) --- */
+        .tabela-container { 
+            background: white; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            color: #333;
+            
+        }
+        
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8f9fa; padding: 15px; text-align: left; font-size: 0.8rem; color: #666; border-bottom: 2px solid #eee; }
+        td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        
+        .niver-badge { 
+            display: inline-block;
+            padding: 5px 12px;
+            border: 2px solid #28a745;
+            border-radius: 20px;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .status-badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        .status-1 { background: #e8f5e9; color: #2e7d32; }
+        .status-2 { background: #ffebee; color: #c62828; }
+        
+        /* --- RESPONSIVIDADE (MOBILE) --- */
+        @media (max-width: 768px) {
+            /* Sidebar vira uma gaveta oculta */
+            .sidebar {
+                left: -100%; 
+                width: 270px;
+                box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+            }
+        
+            .sidebar.active { left: 0; }
+        
+            /* Libera o conteúdo para ocupar a tela toda */
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        
+            header { padding: 15px 20px; }
+        
+            /* Botão Hambúrguer flutuante */
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                bottom: 35px;
+                left: 20px;
+                width: 60px;
+                height: 60px;
+                background: var(--primary);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                font-size: 1.2rem;
+                z-index: 1050;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                cursor: pointer;
+            }
+        
+            /* Botão fechar dentro do menu */
+            .close-sidebar {
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 5px;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.4rem;
+            }
+        
+            /* Ajuste de tabelas para scroll lateral */
+            .tabela-container { overflow-x: auto!important; }
+            table { min-width: 700px; }
+        
+            /* Cards em 1 coluna */
+            .grid-aulas { grid-template-columns: 1fr !important; }
+        }
+        
+        /* No Desktop, o conteúdo tem margem para não ficar sob o menu */
+        .main-content {
+            margin-left: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            transition: all 0.4s ease; /* Adiciona suavidade ao abrir/fechar */
+        }
+        
+        /* Filtros */
+        .filter-bar { background: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; display: flex; gap: 15px; align-items: flex-end; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .filter-group { flex: 1; }
+        .filter-group label { display: block; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; color: #666; }
+        .filter-group input, .filter-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
+        .modal-content { background: #071a3d; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 450px; position: relative; }
+        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    
+    
+        /* --- AJUSTE PARA CELULAR (IMPORTANTE) --- */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0 !important; /* Remove o espaço do menu no celular */
+                width: 100% !important;     /* Garante que ocupe a tela inteira */
+            }
+            
+            .sidebar {
+                left: -100%; /* Garante que comece fora da tela */
+            }
+            
+            .sidebar.active {
+                left: 0; /* Desliza para dentro quando clicado */
+            }
+            .filter-bar {display: grid;}
+            .modal-content { width: 75%; }
+        }
+        .container { padding: 30px 40px; }
+        
+        /* Cards */
+        .grid-aulas { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative; border-top: 4px solid var(--primary); transition: 0.3s; }
+        
+        /* Estilo para Aula Concluída */
+        .card.concluida { opacity: 0.7; border-top-color: #28a745; background: #f9f9f9; }
+        .card.concluida .badge { background: #28a745; }
+        .icone-concluido { color: #28a745; font-size: 1.2rem; margin-left: 5px; }
+
+        .badge { background: var(--secondary); color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+        .stats-agendamento { background: #f8f9fa; padding: 12px; border-radius: 8px; margin-top: 15px; display: flex; justify-content: space-between; }
+        
+        .btn-filter { background: var(--secondary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; height: 41px; font-weight: bold; }
+        .fab { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; border: none; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 99; }
+    
+        h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+
+        /* Header Estilizado */
+        
+        .clr-branco{
+            color: white;
+        }
+        .clr-laranja{
+            color: var(--primary);
+        }
+        .clr-azul{
+            color: var(--secondary);
+        }
+        .bkg-laranja{
+            background-color: var(--primary);
+        }
+        .bkg-azul{
+            background-color: var(--secondary);
+        }
+        .bkg-branco{
+            background-color: white;
+        }
+        
+        .logo span { color: var(--primary); }
+
+        .fichas-container {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--primary);
+        }
+
+        .fichas-count { color: var(--primary); font-weight: bold; font-size: 1.2rem; }
+
+        /* Container Principal */
+        .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        .section-header { margin-bottom: 30px; border-left: 5px solid var(--primary); padding-left: 15px; }
+
+        /* Grid de Aulas em Cards */
+        .aulas-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+
+        .card-aula {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .card-aula:hover { transform: translateY(-10px); }
+
+        .card-header {
+            background: var(--secondary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-body { padding: 25px; }
+        
+        .info-item { display: flex; align-items: center; margin-bottom: 12px; font-size: 0.95rem; }
+        .info-item i { color: var(--primary); width: 25px; }
+
+        .btn-agendar {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-agendar:hover { background: #e65c00; }
+        .btn-agendar:disabled { background: #ccc; cursor: not-allowed; }
+
+        .btn-comprar {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .btn-agenda-link{
+            text-decoration: none;
+            background: var(--secondary);
+            color: white; padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-agenda-link:hover{
+            text-decoration: none;
+            background: var(--primary);
+            color: white; padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .flexbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .spacebox{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .text-center{
+            text-align:center;
+        }
+        
+        .calendar-grid { 
+            display: grid; 
+            grid-template-columns: repeat(7, 1fr); 
+            gap: 12px; 
+            max-width: 1300px; 
+            margin: 0 auto 50px; 
+            padding: 0 20px;
+        }
+        
+        .day-column { background: #fff; border-radius: 10px; min-height: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eee; }
+        .day-header { padding: 15px 10px; text-align: center; background: #f8f9fa; border-bottom: 2px solid #eee; }
+        .day-header.today { background: var(--secondary); color: white; border-bottom: 2px solid var(--primary); }
+        
+        .event-card { 
+            background: #fdfdfd; 
+            margin: 10px; 
+            padding: 12px; 
+            border-radius: 8px; 
+            font-size: 0.85rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .event-card strong { display: block; margin-bottom: 4px; color: var(--secondary); }
+        .event-card .info { color: #666; font-size: 0.8rem; display: block; }
+        
+        .btn-cancelar { 
+            margin-top: 10px; 
+            background: #ff3e3e; 
+            color: white; 
+            border: none; 
+            padding: 6px; 
+            width: 100%; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 0.75rem; 
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-cancelar:hover { background: #cc0000; }
+        
+        .fora-prazo { 
+            display: block; 
+            margin-top: 10px; 
+            color: #bbb; 
+            font-size: 0.7rem; 
+            text-align: center; 
+            font-style: italic; 
+        }
+
+        @media (max-width: 1024px) { .calendar-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 768px) { .calendar-grid { grid-template-columns: 1fr; } }
+        
+        .form-group input, .form-group select { background: rgba(255, 255, 255, 0.05);width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; color:white; }
+    
+        .form-group {
+            margin-bottom: 20px;
+        }
+        select option {
+            background-color: #071a3d; /* Cor secundária do seu projeto */
+            color: white;
+        }
+        
+        /* Muda apenas uma opção específica ou classe */
+        .opcao-destaque {
+            background-color: #ff6A00; /* Cor primária do seu projeto */
+            color: white;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: #bbb;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Reaproveitando o estilo de bot達o do seu index */
+        .btn-auth {
+            width: 100%;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        
+        .btn-auth:hover {
+            background-color: #fff;
+            color: var(--secondary);
+        }
+        
+        .auth-footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        .auth-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .alert {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .erro { background: #f8d7da; color: #721c24; }
+        .sucesso { background: #d4edda; color: #155724; }
+        .auth-footer { text-align: center; margin-top: 20px; font-size: 14px; }
+        .auth-footer a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+        
+        .tabela-container { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8f9fa; padding: 15px; text-align: left; font-size: 0.8rem; color: #666; border-bottom: 2px solid #eee; }
+        td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        
+        /* Destaque Aniversariante [Novo] */
+        .niver-badge { 
+            display: inline-block;
+            padding: 5px 10px;
+            border: 2px solid #28a745;
+            border-radius: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        
+        .status-badge { padding: 4px 8px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; }
+        .status-1 { background: #e8f5e9; color: #2e7d32; }
+        .status-2 { background: #ffebee; color: #c62828; }
+
+        .btn-acao { border: none; background: none; cursor: pointer; color: #777; font-size: 1rem; margin: 0 5px; }
+        .btn-acao:hover { color: var(--primary); }
+        .btn-save { width: 100%; background: var(--primary); color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; }

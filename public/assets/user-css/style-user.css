@@ -1,0 +1,346 @@
+:root {
+            --primary: #ff6A00;
+            --secondary: #071a3d;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Raleway', sans-serif; background: #05122b; color: #333; line-height: 1.6; }
+        h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+
+        /* Header Estilizado */
+        header { 
+            background: var(--secondary); 
+            color: var(--white); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .clr-branco{
+            color: white;
+        }
+        .clr-laranja{
+            color: var(--primary);
+        }
+        .clr-azul{
+            color: var(--secondary);
+        }
+        .bkg-laranja{
+            background-color: var(--primary);
+        }
+        .bkg-azul{
+            background-color: var(--secondary);
+        }
+        .bkg-branco{
+            background-color: white;
+        }
+        
+        .logo span { color: var(--primary); }
+
+        .fichas-container {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--primary);
+        }
+
+        .fichas-count { color: var(--primary); font-weight: bold; font-size: 1.2rem; }
+
+        /* Container Principal */
+        .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        .section-header { margin-bottom: 30px; border-left: 5px solid var(--primary); padding-left: 15px; }
+
+        /* Grid de Aulas em Cards */
+        .aulas-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+
+        .card-aula {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .card-aula:hover { transform: translateY(-10px); }
+
+        .card-header {
+            background: var(--secondary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-body { padding: 25px; }
+        
+        .info-item { display: flex; align-items: center; margin-bottom: 12px; font-size: 0.95rem; }
+        .info-item i { color: var(--primary); width: 25px; }
+
+        .btn-agendar {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-agendar:hover { background: #e65c00; }
+        .btn-agendar:disabled { background: #ccc; cursor: not-allowed; }
+
+        .btn-comprar {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .btn-agenda-link{
+            text-decoration: none;
+            background: var(--secondary);
+            color: white; padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-agenda-link:hover{
+            text-decoration: none;
+            background: var(--primary);
+            color: white; padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .flexbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .spacebox{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* Estilos dos bot천es */
+        .btn-agendado { background: #34A853 !important; color: white !important; cursor: default !important; border: none; }
+        .btn-em-andamento { background: #f1c40f !important; color: #000 !important; cursor: default !important; border: none; font-weight: bold; }
+        .btn-lotado { background: #ccc !important; color: #666 !important; cursor: not-allowed !important; border: none; }
+        .btn-sem-saldo { background: #eee !important; color: #999 !important; cursor: not-allowed !important; border: 1px dashed #ccc; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .header-actions {
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0;
+                width: 100%; background: var(--secondary); padding: 20px; gap: 15px;
+                box-sizing: border-box; border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            .header-actions.active { display: flex; border-bottom: 2px solid #ff6A00; }
+            .header-actions a, .header-actions div { width: 100%; text-align: center; justify-content: center; }
+            .section-header { flex-direction: column; text-align: center; gap: 15px; }
+            .btn-agenda-link { width: 100%; justify-content: center; }
+        }
+        
+        .calendar-grid { 
+            display: grid; 
+            grid-template-columns: repeat(7, 1fr); 
+            gap: 12px; 
+            max-width: 1300px; 
+            margin: 0 auto 50px; 
+            padding: 0 20px;
+        }
+        
+        .day-column { background: #fff; border-radius: 10px; min-height: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #eee; }
+        .day-header { padding: 15px 10px; text-align: center; background: #f8f9fa; border-bottom: 2px solid #eee; }
+        .day-header.today { background: var(--secondary); color: white; border-bottom: 2px solid var(--primary); }
+        
+        .event-card { 
+            background: #fdfdfd; 
+            margin: 10px; 
+            padding: 12px; 
+            border-radius: 8px; 
+            font-size: 0.85rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .event-card strong { display: block; margin-bottom: 4px; color: var(--secondary); }
+        .event-card .info { color: #666; font-size: 0.8rem; display: block; }
+        
+        .btn-cancelar { 
+            margin-top: 10px; 
+            background: #ff3e3e; 
+            color: white; 
+            border: none; 
+            padding: 6px; 
+            width: 100%; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 0.75rem; 
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-cancelar:hover { background: #cc0000; }
+        
+        .fora-prazo { 
+            display: block; 
+            margin-top: 10px; 
+            color: #bbb; 
+            font-size: 0.7rem; 
+            text-align: center; 
+            font-style: italic; 
+        }
+
+        @media (max-width: 1024px) { .calendar-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 768px) { .calendar-grid { grid-template-columns: 1fr; } }
+        
+        /* Estilos para Celular (Mobile) */
+        @media (max-width: 768px) {
+            #nav-menu {
+                display: none; /* Começa escondido */
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Ajuste para ficar logo abaixo do seu header */
+                left: 0;
+                width: 100%;
+                background-color: #10284f; /* Fundo escuro para contrastar com o texto branco */
+                padding: 20px;
+                z-index: 1000;
+                border-bottom: 2px solid #ff6A00;
+                gap: 20px;
+            }
+        
+            /* A MÁGICA ACONTECE AQUI: */
+            /* Quando o JavaScript clicar e adicionar 'active', o CSS mostra o menu */
+            #nav-menu.active {
+                display: flex !important;
+            }
+        
+            /* Garante que o botão de abrir apareça no celular */
+            .menu-toggle {
+                display: block !important;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+        
+        /* Estilos para Computador (Desktop) */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none; /* Esconde o botão de hambúrguer no PC */
+            }
+            #nav-menu {
+                display: flex !important; /* Sempre visível no PC */
+                flex-direction: row;
+                position: static;
+                background: none;
+                padding: 0;
+            }
+        }
+        
+        
+        /* Barra de Filtros Geral */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap; /* Permite quebrar linha no mobile */
+            gap: 15px;
+            align-items: flex-end;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1; /* Faz os campos crescerem por igual */
+            min-width: 200px; /* Impede que fiquem pequenos demais */
+        }
+        
+        .filter-group label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #444;
+        }
+        
+        .filter-group input, .filter-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .filter-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-filter {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            height: 40px;
+        }
+        
+        .btn-limpar {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        /* AJUSTE PARA CELULAR */
+        @media (max-width: 768px) {
+            .filter-bar {
+                flex-direction: column; /* Empilha um embaixo do outro */
+                align-items: stretch; /* Ocupa toda a largura */
+            }
+        
+            .filter-group {
+                width: 100%;
+            }
+        
+            .filter-actions {
+                margin-top: 10px;
+                justify-content: space-between;
+            }
+        
+            .btn-filter {
+                width: 100%; /* Botão filtrar largo no celular */
+                order: 1;
+            }
+        }

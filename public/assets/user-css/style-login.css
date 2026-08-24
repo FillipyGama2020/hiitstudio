@@ -1,0 +1,152 @@
+/* Cores baseadas no seu pedido e no tema */
+:root {
+    --primary: #ff6A00;
+    --secondary: #071a3d;
+    --dark-bg: #101010; /* Seguindo o padrão dark do seu index */
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    background-image: url(../img/about/1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+/* Centralização inspirada no center-container do seu index */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #071a3d87;
+}
+
+.auth-card {
+    background-color: var(--secondary);
+    padding: 40px;
+    border-radius: 4px; /* Bordas menos arredondadas para um ar mais moderno/industrial */
+    width: 100%;
+    max-width: 450px;
+    border-top: 5px solid var(--primary);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.auth-card h2 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #bbb;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    outline: none;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Reaproveitando o estilo de botão do seu index */
+.btn-auth {
+    width: 100%;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.btn-auth:hover {
+    background-color: #fff;
+    color: var(--secondary);
+}
+
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.erro { background: #f8d7da; color: #721c24; }
+.sucesso { background: #d4edda; color: #155724; }
+.auth-footer { text-align: center; margin-top: 20px; font-size: 14px; }
+.auth-footer a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+
+.login-container{
+    text-align: center;
+    padding: 10px;
+}
+.google-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  color: #3c4043;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: 1px solid #dadce0;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+}
+
+.google-btn:hover {
+  background-color: #f7f8f8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.google-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.google-icon {
+  display: flex;
+  align-items: center;
+}
